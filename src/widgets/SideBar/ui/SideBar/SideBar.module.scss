@@ -5,11 +5,6 @@
   transition: width 0.5s;
   position: relative;
 }
-.collapsed {
-  width: var(--sidebar-width-collapsed);
-  transition: width 0.5s;
-  position: relative;
-}
 .switchers {
   position: absolute;
   bottom: 20px;
@@ -17,6 +12,47 @@
   width: 100%;
   justify-content: center;
 }
+
 .langSwitcher {
-  margin-left: 20px; 
+  margin-left: 20px;
+}
+.collapseBtn {
+  position: absolute;
+  right: -32px;
+  bottom: 32px;
+}
+.items{
+  margin-top: 20px;
+  margin-left: 30px;
+  display: flex;
+  flex-direction: column;
+}
+.link{
+  margin-left: 10px;
+  transition: 0.2s ;
+  opacity: 1;
+}
+.item{
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+}
+.icon{
+ fill: var(--inverted-primary-color);
+}
+.collapsed {
+  width: var(--sidebar-width-collapsed);
+  transition: width 0.5s;
+  position: relative;
+  .switchers {
+    flex-direction: column;
+  }
+  .lang{
+    margin-left: 0;
+  }
+  .link{
+    opacity: 0;
+    transition: 0.2s opacity;
+    width: 0;
+  }
 }
