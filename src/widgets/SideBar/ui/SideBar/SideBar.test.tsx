@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { SideBar } from "./SideBar";
-import { renderWithTranslation } from "shared/lib/tests/renderWithTranslation";
+import { renderWithTranslation } from "shared/lib/tests/renderWithTranslation/renderWithTranslation";
 
 describe("sideBar", () => {
   test("test toggle", () => {
