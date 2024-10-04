@@ -6,13 +6,14 @@ import { SideBar } from "widgets/SideBar";
 import { Suspense, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { userActions } from "entities/User";
+import { useNavigate } from "react-router-dom";
 
 const App = () => {
   const { theme } = useTheme();
   const dispatch = useDispatch();
-
+  
   useEffect(() => {
-    dispatch(userActions.setAuthData());
+    dispatch(userActions.initAuthData());
   }, [dispatch]);
 
   

@@ -18,7 +18,7 @@ export const Counter = ({}: CounterProps) => {
   return (
     <div>
       <span data-testid={"value-title"}>{counterValue} </span>
-      <Button data-testId='increment-btn' onClick={increment}>increment</Button>
+      <Button data-testid='increment-btn' onClick={increment}>increment</Button>
       <Button data-testid='decrement-btn' onClick={decrement}>decrement</Button>
     </div>
   );

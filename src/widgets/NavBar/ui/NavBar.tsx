@@ -1,10 +1,7 @@
 import React, { useCallback, useState } from "react";
 import { classNames } from "shared/lib/classNames/className";
 import cls from "./Navbar.module.scss";
-import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
-import { ThemeSwitcher } from "widgets/ThemeSwitcher";
 import { Button, ThemeButton } from "shared/ui/Button/Button";
-import { Modal } from "shared/ui/Modal/Modal";
 import { LoginModal } from "features/AuthByUsername";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserAuthData, userActions } from "entities/User";
@@ -25,7 +22,7 @@ export const NavBar = ({ className }: NavBarProps) => {
   };
 
   const onLogOut = useCallback(() => {
-    dispatch(userActions.logout);
+    dispatch(userActions.logout());
   }, [dispatch]);
 
   if (authData) {

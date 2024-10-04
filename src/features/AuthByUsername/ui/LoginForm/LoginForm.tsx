@@ -14,18 +14,16 @@ import { getLoginUsername } from "../../model/selectors/getLoginUsername/getLogi
 import { getLoginPassword } from "../../model/selectors/getLoginPassword/getLoginPassword";
 import { getLoginIsLoading } from "../../model/selectors/getLoginIsLoading/getLoginIsLoading";
 import { getLoginError } from "../../model/selectors/getLoginError/getLoginError";
-import {
-  DynamicMuduleLoader,
-  ReducerList,
-} from "shared/lib/components/DynamicMuduleLoader/DynamicMuduleLoader";
+
 import { useAppDispatch } from "shared/lib/hooks/AppDispatch/AppDispatch";
+import { DynamicModuleLoader, ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 
 export interface LoginFormProps {
   className?: string;
   onSuccess: () => void;
 }
 
-const initialReducers: ReducerList = {
+const initialReducers: ReducersList = {
   loginForm: loginReducer,
 };
 
@@ -52,13 +50,13 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
 
   const onLoginClick = useCallback(async () => {
     const result = await dispatch(loginByUsername({ username, password }));
-    if(result.meta.requestStatus ==='fulfilled'){
-      onSuccess()
+    if (result.meta.requestStatus === "fulfilled") {
+      onSuccess();
     }
-  }, [onSuccess,dispatch, password, username]);
+  }, [onSuccess, dispatch, password, username]);
 
   return (
-    <DynamicMuduleLoader removeAfterUnmount={false} reducers={initialReducers}>
+    <DynamicModuleLoader removeAfterUnmount={false} reducers={initialReducers}>
       <div className={classNames(cls.LoginForm, {}, [className])}>
         <Text title={"форма авторизации"} />
         {error && <Text text={error} theme={TextTheme.ERROR} />}
@@ -86,7 +84,7 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
           Войти
         </Button>
       </div>
-    </DynamicMuduleLoader>
+    </DynamicModuleLoader>
   );
 });
 export default LoginForm;
