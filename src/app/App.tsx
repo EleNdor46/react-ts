@@ -9,25 +9,24 @@ import { userActions } from "entities/User";
 import { useNavigate } from "react-router-dom";
 
 const App = () => {
-  const { theme } = useTheme();
-  const dispatch = useDispatch();
-  
-  useEffect(() => {
-    dispatch(userActions.initAuthData());
-  }, [dispatch]);
+    const { theme } = useTheme();
+    const dispatch = useDispatch();
 
-  
-  return (
-    <div className={classNames("app", {}, [theme])}>
-      <Suspense fallback="">
-        <NavBar />
-        <div className="content-page">
-          <SideBar />
-          <AppRouter />
+    useEffect(() => {
+        dispatch(userActions.initAuthData());
+    }, [dispatch]);
+
+    return (
+        <div className={classNames("app", {}, [theme])}>
+            <Suspense fallback="">
+                <NavBar />
+                <div className="content-page">
+                    <SideBar />
+                    <AppRouter />
+                </div>
+            </Suspense>
         </div>
-      </Suspense>
-    </div>
-  );
+    );
 };
 
 export default App;

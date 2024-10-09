@@ -1,23 +1,41 @@
-import { classNames } from "shared/lib/classNames/className";
+import { classNames, Mods } from "shared/lib/classNames/className";
 import cls from "./Text.module.scss";
 
 export enum TextTheme {
-  PRIMARY = "primary",
-  ERROR = "error",
+    PRIMARY = "primary",
+    ERROR = "error",
+}
+
+export enum TextAlign {
+    RIGHT = "right",
+    CENTER = "center",
+    LEFT = "left",
 }
 
 interface TextProps {
-  className?: string;
-  title?: string;
-  text?: string;
-  theme?: TextTheme;
+    className?: string;
+    title?: string;
+    text?: string;
+    theme?: TextTheme;
+    aligin?: TextAlign;
 }
 
-export const Text = ({ className, title, text, theme = TextTheme.PRIMARY }: TextProps) => {
-  return (
-    <div className={classNames(cls.Text, {}, [className, cls[theme]])}>
-      {title && <p className={cls.title}>{title}</p>}
-      {text && <p className={cls.text}>{text}</p>}
-    </div>
-  );
+export const Text = ({
+    className,
+    title,
+    text,
+    theme = TextTheme.PRIMARY,
+    aligin = TextAlign.LEFT,
+}: TextProps) => {
+    const mods: Mods = {
+        [cls[theme]]: true,
+        [cls[aligin]]: true,
+    };
+
+    return (
+        <div className={classNames(cls.Text, mods, [className])}>
+            {title && <p className={cls.title}>{title}</p>}
+            {text && <p className={cls.text}>{text}</p>}
+        </div>
+    );
 };
