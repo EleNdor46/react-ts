@@ -5,6 +5,7 @@ import {
     fetchProfileData,
     getProfileForm,
     getProfileReadonly,
+    getProfileValidateError,
     profileActions,
     ProfileCard,
     profileReducer,
@@ -22,6 +23,7 @@ import { getProfileIsLoading } from "entities/Profile/model/selectors/getProfile
 import { ProfilePageHeader } from "./ProfilePageHeader/ProfilePageHeader";
 import { Currency } from "entities/Currency";
 import { Country } from "entities/Country";
+import { Text, TextTheme } from "shared/ui/Text/Text";
 
 const reducers: ReducersList = {
     profile: profileReducer,
@@ -38,7 +40,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
     const error = useSelector(getProfileError);
     const isLoading = useSelector(getProfileIsLoading);
     const readonly = useSelector(getProfileReadonly);
-
+    const validateErrors = useSelector(getProfileValidateError);
     useEffect(() => {
         dispatch(fetchProfileData());
     }, [dispatch]);
@@ -97,6 +99,10 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <div className={classNames("", {}, [className])}>
                 <ProfilePageHeader />
+                {validateErrors?.length &&
+                    validateErrors.map((err) => (
+                        <Text theme={TextTheme.ERROR} text={err} key={err}/>
+                    ))}
                 <ProfileCard
                     onChangeAge={onChangeAge}
                     data={formData}
