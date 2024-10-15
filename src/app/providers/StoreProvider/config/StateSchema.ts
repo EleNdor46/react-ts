@@ -12,6 +12,7 @@ import { ProfileSchema } from "entities/Profile";
 import { UserSchema } from "entities/User";
 import { loginSchema } from "features/AuthByUsername";
 import { NavigateOptions } from "react-router-dom";
+import { articleDetailsSchema } from "entities/Article";
 
 export interface StateSchema {
     counter: CounterSchema;
@@ -20,6 +21,7 @@ export interface StateSchema {
     //async
     profile?: ProfileSchema;
     loginForm?: loginSchema;
+    articleDetails?: articleDetailsSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;
@@ -46,5 +48,5 @@ export interface ThunkExtraArg {
 export interface ThunkConfig<T> {
     rejectValue: T;
     extra: ThunkExtraArg;
-    state:StateSchema
+    state: StateSchema;
 }

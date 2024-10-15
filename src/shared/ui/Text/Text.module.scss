@@ -2,10 +2,11 @@
     font: var(--font-l);
     color: var(--primary-color);
 }
+
 .text {
-    font: var(--font-m);
     color: var(--secondary-color);
 }
+
 .error {
     .title {
         color: var(--red-light);
@@ -15,6 +16,7 @@
         color: var(--red-dark);
     }
 }
+
 .primary {
     .title {
     }
@@ -25,9 +27,31 @@
 .left {
     text-align: left;
 }
+
 .right {
     text-align: right;
 }
+
 .center {
     text-align: center;
 }
+
+.size_m {
+    .title {
+        font: var(--font-l);
+    }
+    .text {
+        font: var(--font-m);
+    }
+}
+
+.size_l {
+    .title {
+        font: var(--font-xl);
+    }
+    .text {
+        font: var(--font-l);
+    }
+}
+
+
