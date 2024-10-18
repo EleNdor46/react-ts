@@ -33,6 +33,8 @@
 
 .collapsed {
   width: var(--sidebar-width-collapsed);
+  
+  transition: 1s ;
 
   .switchers {
     flex-direction: column;
@@ -42,5 +44,5 @@
   .lang {
     margin-left: 0;
   }
-  transition: 1s width;
+  
 }

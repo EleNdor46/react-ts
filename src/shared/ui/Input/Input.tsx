@@ -80,7 +80,7 @@ export const Input = memo(
                     {isCaretVisible && (
                         <span
                             className={cls.caret}
-                            style={{ left: `${caretPosition * 7.5}px` }}
+                            style={{ left: `${caretPosition * 7.2}px` }}
                         >
                             {" "}
                         </span>

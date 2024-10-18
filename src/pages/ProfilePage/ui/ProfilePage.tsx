@@ -17,13 +17,13 @@ import {
     ReducersList,
 } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { useSelector } from "react-redux";
-import { getProfileData } from "entities/Profile/model/selectors/getProfileData/getProfileData";
 import { getProfileError } from "entities/Profile/model/selectors/getProfileError/getProfileError";
 import { getProfileIsLoading } from "entities/Profile/model/selectors/getProfileIsLoading/getProfileIsLoading";
 import { ProfilePageHeader } from "./ProfilePageHeader/ProfilePageHeader";
 import { Currency } from "entities/Currency";
 import { Country } from "entities/Country";
 import { Text, TextTheme } from "shared/ui/Text/Text";
+import { useParams } from "react-router-dom";
 
 const reducers: ReducersList = {
     profile: profileReducer,
@@ -41,9 +41,14 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
     const isLoading = useSelector(getProfileIsLoading);
     const readonly = useSelector(getProfileReadonly);
     const validateErrors = useSelector(getProfileValidateError);
+
+    const { id } = useParams<{ id: string }>();
+
     useEffect(() => {
-        dispatch(fetchProfileData());
-    }, [dispatch]);
+        if (id) {
+            dispatch(fetchProfileData(id));
+        }
+    }, [dispatch,id]);
 
     const onChangeFirtsname = useCallback(
         (value?: string) => {
@@ -101,7 +106,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
                 <ProfilePageHeader />
                 {validateErrors?.length &&
                     validateErrors.map((err) => (
-                        <Text theme={TextTheme.ERROR} text={err} key={err}/>
+                        <Text theme={TextTheme.ERROR} text={err} key={err} />
                     ))}
                 <ProfileCard
                     onChangeAge={onChangeAge}
