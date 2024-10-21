@@ -8,7 +8,6 @@ import { getUserAuthData } from "entities/User";
 import { SideBarItemType } from "../types/sidbar";
 
 export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
-    console.log(userData);
     const sideBarItemsList: SideBarItemType[] = [
         {
             path: RoutePath.main,
