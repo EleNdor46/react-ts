@@ -6,52 +6,52 @@ import { LoginModal } from "features/AuthByUsername";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserAuthData, userActions } from "entities/User";
 interface NavBarProps {
-  className?: string;
+    className?: string;
 }
 
 export const NavBar = ({ className }: NavBarProps) => {
-  const [isAuthModal, setIsAuthModal] = useState(false);
-  const authData = useSelector(getUserAuthData);
-  const dispatch = useDispatch();
-  const onCloseModal = () => {
-    setIsAuthModal(false);
-  };
+    const [isAuthModal, setIsAuthModal] = useState(false);
+    const authData = useSelector(getUserAuthData);
+    const dispatch = useDispatch();
+    const onCloseModal = () => {
+        setIsAuthModal(false);
+    };
 
-  const onShowModal = () => {
-    setIsAuthModal(true);
-  };
+    const onShowModal = () => {
+        setIsAuthModal(true);
+    };
 
-  const onLogOut = useCallback(() => {
-    dispatch(userActions.logout());
-  }, [dispatch]);
+    const onLogOut = useCallback(() => {
+        dispatch(userActions.logout());
+    }, [dispatch]);
 
-  if (authData) {
+    if (authData) {
+        return (
+            <header className={classNames(cls.navbar, {}, [className])}>
+                <Button
+                    theme={ThemeButton.CLEAR_INVERTED}
+                    className={classNames(cls.links)}
+                    onClick={onLogOut}
+                >
+                    Log out
+                </Button>
+                <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
+            </header>
+        );
+    }
+
     return (
-      <div className={classNames(cls.navbar, {}, [className])}>
-        <Button
-          theme={ThemeButton.CLEAR_INVERTED}
-          className={classNames(cls.links)}
-          onClick={onLogOut}
-        >
-          Log out
-        </Button>
-        <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
-      </div>
+        <header className={classNames(cls.navbar, {}, [className])}>
+            <Button
+                theme={ThemeButton.CLEAR_INVERTED}
+                className={classNames(cls.links)}
+                onClick={onShowModal}
+            >
+                Sing In
+            </Button>
+            {isAuthModal && (
+                <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
+            )}
+        </header>
     );
-  }
-
-  return (
-    <div className={classNames(cls.navbar, {}, [className])}>
-      <Button
-        theme={ThemeButton.CLEAR_INVERTED}
-        className={classNames(cls.links)}
-        onClick={onShowModal}
-      >
-        Sing In
-      </Button>
-      {isAuthModal && (
-        <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
-      )}
-    </div>
-  );
 };

@@ -1,19 +1,14 @@
 import { BugButton } from "app/providers/ErrorBoundary";
-import { Counter } from "entities/Counter";
-import React from "react";
 import { useTranslation } from "react-i18next";
-import { Input } from "shared/ui/Input/Input";
+import { Page } from "shared/ui/Page/Page";
 const MainPage = () => {
-  const { t } = useTranslation();
+    const { t } = useTranslation();
 
-  return (
-    <div>
-      <BugButton></BugButton>
-      {t("Главная страница")} 
-      <Counter/>
-      <Input></Input>
-    </div>
-  );
+    return (
+        <Page>
+            <BugButton></BugButton>
+        </Page>
+    );
 };
 
 export default MainPage;
