@@ -1,4 +1,4 @@
-import { State, To } from "history";
+import { To } from "history";
 import {
     AnyAction,
     CombinedState,
@@ -15,6 +15,7 @@ import { NavigateOptions } from "react-router-dom";
 import { articleDetailsSchema } from "entities/Article";
 import { ArticleDetailsCommentsSchema } from "pages/ArticleDetailsPage";
 import { addCommentFormSchema } from "features/addCommentForm";
+import { ArticlePageShema } from "pages/ArticlePage";
 
 export interface StateSchema {
     counter: CounterSchema;
@@ -26,6 +27,7 @@ export interface StateSchema {
     articleDetails?: articleDetailsSchema;
     articleDetailsComments?: ArticleDetailsCommentsSchema;
     addCommentForm?: addCommentFormSchema;
+    articlePage?: ArticlePageShema;
 }
 
 export type StateSchemaKey = keyof StateSchema;
