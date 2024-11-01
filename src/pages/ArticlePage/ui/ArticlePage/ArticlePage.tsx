@@ -9,7 +9,7 @@ import {
     DynamicModuleLoader,
     ReducersList,
 } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import { useDispatch, useSelector } from "react-redux";
+import {  useSelector } from "react-redux";
 import { Page } from "shared/ui/Page/Page";
 import cls from "./ArticlePage.module.scss";
 import { useAppDispatch } from "shared/lib/hooks/AppDispatch/AppDispatch";
@@ -20,13 +20,12 @@ import {
 } from "pages/ArticlePage/model/slice/ArticlePageSlice";
 import {
     getArticlePageError,
-    getArticlePageHasMore,
     getArticlePageIsLoading,
-    getArticlePageNum,
     getArticlePageView,
 } from "pages/ArticlePage/model/selctors/articlePageSelectors";
 import { fetchNextArticlesPage } from "pages/ArticlePage/model/services/fetchNextArticlePage/fetchNextArticlePage";
 import { classNames } from "shared/lib/classNames/className";
+import { initArticlePage } from "pages/ArticlePage/model/services/initArticlePage/initArticlePage";
 
 interface ArticlePageProps {
     className?: string;
@@ -44,6 +43,7 @@ const ArticlePage = (props: ArticlePageProps) => {
     const isLoading = useSelector(getArticlePageIsLoading);
     const view = useSelector(getArticlePageView);
     const error = useSelector(getArticlePageError);
+
     const onChangeView = useCallback(
         (view: ArticleView) => {
             dispatch(ArticlePageActions.setView(view));
@@ -56,16 +56,11 @@ const ArticlePage = (props: ArticlePageProps) => {
     }, [dispatch]);
 
     useEffect(() => {
-        dispatch(ArticlePageActions.initState());
-        // dispatch(
-        //     fetchArticlesList({
-        //         page: 1,
-        //     })
-        // );
+        dispatch(initArticlePage());
     }, [dispatch]);
 
     return (
-        <DynamicModuleLoader reducers={reducers}>
+        <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
             <Page
                 onScrollEnd={onLoadNextPart}
                 className={classNames(cls.ArticlesPage, {}, [className])}
@@ -82,7 +77,3 @@ const ArticlePage = (props: ArticlePageProps) => {
 };
 
 export default memo(ArticlePage);
-
-function fetchArticlesList(arg0: { page: number }): any {
-    throw new Error("Function not implemented.");
-}
