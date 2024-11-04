@@ -24,7 +24,7 @@ import AddCommentForm from "features/addCommentForm/ui/addCommentForm/addComment
 import { addCommentForArticle } from "pages/ArticleDetailsPage/model/services/addCommentForArticle/addCommentForArticle";
 import { Button, ThemeButton } from "shared/ui/Button/Button";
 import { RoutePath } from "shared/config/RouterConfig/routerConfig";
-import { Page } from "shared/ui/Page/Page";
+import { Page } from "widgets/Page/Page";
 
 interface ArticleDetailPageProps {
     className?: string;
@@ -67,7 +67,9 @@ const ArticleDetailPage = ({ className }: ArticleDetailPageProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <Page className={classNames(cls.ArticleDetailPage, {}, [className])}>
+            <Page
+                className={classNames(cls.ArticleDetailPage, {}, [className])}
+            >
                 <Button theme={ThemeButton.OUTLINE} onClick={onBackToList}>
                     Back
                 </Button>

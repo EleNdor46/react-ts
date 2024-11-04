@@ -16,11 +16,12 @@ import { articleDetailsSchema } from "entities/Article";
 import { ArticleDetailsCommentsSchema } from "pages/ArticleDetailsPage";
 import { addCommentFormSchema } from "features/addCommentForm";
 import { ArticlePageShema } from "pages/ArticlePage";
+import { UISchema } from "features/UI";
 
 export interface StateSchema {
     counter: CounterSchema;
     user: UserSchema;
-
+    ui: UISchema;
     //async
     profile?: ProfileSchema;
     loginForm?: loginSchema;

@@ -9,8 +9,8 @@ import {
     DynamicModuleLoader,
     ReducersList,
 } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import {  useSelector } from "react-redux";
-import { Page } from "shared/ui/Page/Page";
+import { useSelector } from "react-redux";
+import { Page } from "widgets/Page/Page";
 import cls from "./ArticlePage.module.scss";
 import { useAppDispatch } from "shared/lib/hooks/AppDispatch/AppDispatch";
 import {

@@ -7,15 +7,17 @@ import { NavigateOptions } from "react-router";
 import { CombinedState, Reducer } from "redux";
 import { StateSchema, ThunkExtraArg } from "./StateSchema";
 import { createReducerManager } from "./ReducerManager";
+import { uiReducer } from "features/UI/model/slice/UISlice";
 
 export function createReduxStore(
     initialState?: StateSchema,
-    asyncReducers?: ReducersMapObject<StateSchema>,
+    asyncReducers?: ReducersMapObject<StateSchema>
 ) {
     const rootReducers: ReducersMapObject<StateSchema> = {
         ...asyncReducers,
         counter: counterReducer,
         user: userReducer,
+        ui: uiReducer,
     };
 
     const reducerManager = createReducerManager(rootReducers);
