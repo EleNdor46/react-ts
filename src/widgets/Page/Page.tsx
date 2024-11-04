@@ -40,14 +40,14 @@ export const Page = memo(({ className, children, onScrollEnd }: PageProps) => {
     }, []);
 
     const onScroll = useThrottle((e: UIEvent<HTMLDivElement>) => {
-        console.log('scroll')
+        console.log("scroll");
         dispatch(
             uiActions.setScrollPosition({
                 path: pathname,
                 position: e.currentTarget.scrollTop,
             })
         );
-    },1000);
+    }, 1000);
 
     return (
         <section
@@ -56,7 +56,9 @@ export const Page = memo(({ className, children, onScrollEnd }: PageProps) => {
             onScroll={onScroll}
         >
             {children}
-            <div ref={triggerRef} />
+            {onScrollEnd ? (
+                <div ref={triggerRef} className={cls.trigger} />
+            ) : null}
         </section>
     );
 });

@@ -39,6 +39,10 @@ export const ArticleList = memo(
             />
         );
 
+        if (!isLoading && !articles.length) {
+            return <div>Статьи не найдены</div>;
+        }
+
         return (
             <div
                 className={classNames(cls.ArticleList, {}, [
