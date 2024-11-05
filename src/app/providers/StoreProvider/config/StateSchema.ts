@@ -1,4 +1,5 @@
-import { To } from "history";
+import { ArticleDetailPageSchema } from './../../../../entities/Article/model/types/index';
+import { articleDetailPageRecomendationSchema } from "./../../../../pages/ArticlePage/model/type/articleDetailRecomendationSchema";
 import {
     AnyAction,
     CombinedState,
@@ -11,7 +12,6 @@ import { CounterSchema } from "entities/Counter";
 import { ProfileSchema } from "entities/Profile";
 import { UserSchema } from "entities/User";
 import { loginSchema } from "features/AuthByUsername";
-import { NavigateOptions } from "react-router-dom";
 import { articleDetailsSchema } from "entities/Article";
 import { ArticleDetailsCommentsSchema } from "pages/ArticleDetailsPage";
 import { addCommentFormSchema } from "features/addCommentForm";
@@ -26,7 +26,7 @@ export interface StateSchema {
     profile?: ProfileSchema;
     loginForm?: loginSchema;
     articleDetails?: articleDetailsSchema;
-    articleDetailsComments?: ArticleDetailsCommentsSchema;
+    articleDetailPage?:ArticleDetailPageSchema
     addCommentForm?: addCommentFormSchema;
     articlePage?: ArticlePageShema;
 }

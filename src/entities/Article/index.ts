@@ -1,3 +1,4 @@
+export { ArticleDetailPageSchema } from "./model/types/index";
 export { ArticleViewSelector } from "./ui/ArticleViewSelector/ArticleViewSelector";
 
 export { ArticleList } from "./ui/ArticleList/ArticleList";

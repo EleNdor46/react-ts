@@ -53,18 +53,18 @@ export const ArticlePageFilter = memo(
             (newOrder: SortOrder) => {
                 dispatch(ArticlePageActions.setOrder(newOrder));
                 dispatch(ArticlePageActions.setPage(1));
-                debounceFetchData();
+                fetchData();
             },
-            [dispatch, debounceFetchData]
+            [dispatch, fetchData]
         );
 
         const onChangeSort = useCallback(
             (newSort: ArticleSortField) => {
                 dispatch(ArticlePageActions.setSort(newSort));
                 dispatch(ArticlePageActions.setPage(1));
-                debounceFetchData();
+                fetchData();
             },
-            [dispatch, debounceFetchData]
+            [dispatch, fetchData]
         );
         const onChangeSearch = useCallback(
             (value: string) => {
@@ -78,32 +78,11 @@ export const ArticlePageFilter = memo(
             (value: ArticleType) => {
                 dispatch(ArticlePageActions.setType(value));
                 dispatch(ArticlePageActions.setPage(1));
-                debounceFetchData();
+                fetchData();
             },
-            [dispatch, debounceFetchData]
+            [dispatch, fetchData]
         );
 
-        const typeTabs = useMemo<TabItem[]>(
-            () => [
-                {
-                    value: ArticleType.IT,
-                    content: "IT",
-                },
-                {
-                    value: ArticleType.ECONOMICS,
-                    content: "ECONOMICS",
-                },
-                {
-                    value: ArticleType.SCIENCE,
-                    content: "SCIENCE",
-                },
-                {
-                    value: ArticleType.ALL,
-                    content: "ALL",
-                },
-            ],
-            []
-        );
 
         return (
             <div className={classNames(cls.ArticlePageFilter, {}, [className])}>
