@@ -35,6 +35,7 @@ import {
 } from "pages/ArticleDetailsPage/model/selector/recommendation";
 import { fetchArticleRecommendation } from "pages/ArticleDetailsPage/model/services/fetchArticleRecomendation/fetchArticleRecomendation";
 import { articleDetailReducer } from "pages/ArticleDetailsPage/model/slices";
+import { ArticleDetailPageHeader } from "../ArticleDetailPageHeader/ArticleDetailPageHeader";
 
 interface ArticleDetailPageProps {
     className?: string;
@@ -65,10 +66,6 @@ const ArticleDetailPage = ({ className }: ArticleDetailPageProps) => {
         [dispatch]
     );
 
-    const onBackToList = useCallback(() => {
-        navigate(RoutePath.article);
-    }, [navigate]);
-
     useEffect(() => {
         dispatch(fetchCommentsByArticleId(id));
     }, [dispatch]);
@@ -90,9 +87,7 @@ const ArticleDetailPage = ({ className }: ArticleDetailPageProps) => {
             <Page
                 className={classNames(cls.ArticleDetailPage, {}, [className])}
             >
-                <Button theme={ThemeButton.OUTLINE} onClick={onBackToList}>
-                    Back
-                </Button>
+                <ArticleDetailPageHeader />
                 <ArticleDetails id={id} />
                 <Text
                     title={"Recomendation"}

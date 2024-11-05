@@ -5,6 +5,10 @@ import { Button, ThemeButton } from "shared/ui/Button/Button";
 import { LoginModal } from "features/AuthByUsername";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserAuthData, userActions } from "entities/User";
+import { Text, TextTheme } from "shared/ui/Text/Text";
+import { Avatar } from "shared/ui/Avatar/Avatar";
+import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
+import { RoutePath } from "shared/config/RouterConfig/routerConfig";
 interface NavBarProps {
     className?: string;
 }
@@ -28,6 +32,14 @@ export const NavBar = ({ className }: NavBarProps) => {
     if (authData) {
         return (
             <header className={classNames(cls.navbar, {}, [className])}>
+                <Text title={"¤EleNdor0_o"} theme={TextTheme.INVERTED} className={cls.appName}/>
+                <AppLink
+                    to={RoutePath.article_create}
+                    theme={AppLinkTheme.SECONDARY}
+                    className={cls.createBtn}
+                >
+                    Create Article
+                </AppLink>
                 <Button
                     theme={ThemeButton.CLEAR_INVERTED}
                     className={classNames(cls.links)}
