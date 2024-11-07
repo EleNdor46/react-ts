@@ -8,6 +8,7 @@ import { Avatar } from "shared/ui/Avatar/Avatar";
 import { Currency, CurrencySelect } from "entities/Currency";
 import { Country } from "entities/Country/model/types/country";
 import { CountrySelect } from "entities/Country";
+import { HStack, VStack } from "shared/ui/Stack";
 interface ProfileCardProps {
     className?: string;
     data?: Profile;
@@ -41,7 +42,8 @@ export const ProfileCard = ({
 }: ProfileCardProps) => {
     if (!isLoading) {
         return (
-            <div
+            <HStack
+                justify="center"
                 className={classNames(
                     cls.ProfileCard,
                     { [cls.loading]: true },
@@ -49,13 +51,14 @@ export const ProfileCard = ({
                 )}
             >
                 <Loader />
-            </div>
+            </HStack>
         );
     }
 
     if (error) {
         return (
-            <div
+            <HStack
+                justify="center"
                 className={classNames(cls.ProfileCard, {}, [
                     className,
                     cls.error,
@@ -67,7 +70,7 @@ export const ProfileCard = ({
                     text="reload page"
                     aligin={TextAlign.CENTER}
                 />
-            </div>
+            </HStack>
         );
     }
 
@@ -76,11 +79,15 @@ export const ProfileCard = ({
     };
 
     return (
-        <div className={classNames(cls.ProfileCard, mods, [className])}>
+        <VStack
+            gap="8"
+            max
+            className={classNames(cls.ProfileCard, mods, [className])}
+        >
             {data?.avatar && (
-                <div className={cls.avatarWrapper}>
+                <HStack justify="center" max className={cls.avatarWrapper}>
                     <Avatar src={data?.avatar} alt="avatar" />
-                </div>
+                </HStack>
             )}
             <div className={cls.data}>
                 <Input
@@ -138,6 +145,6 @@ export const ProfileCard = ({
                     className={cls.input}
                 />
             </div>
-        </div>
+        </VStack>
     );
 };

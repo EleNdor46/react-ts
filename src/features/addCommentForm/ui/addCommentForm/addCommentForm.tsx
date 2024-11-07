@@ -17,11 +17,11 @@ import {
 } from "features/addCommentForm/model/selectors/addCommentFormSelectors";
 import { memo, useCallback } from "react";
 import { useAppDispatch } from "shared/lib/hooks/AppDispatch/AppDispatch";
-
+import { HStack } from "shared/ui/Stack";
 
 export interface addCommentFormProps {
     className?: string;
-    onSendComment: (text:string) => void;
+    onSendComment: (text: string) => void;
 }
 
 const reducers: ReducersList = {
@@ -42,15 +42,15 @@ const AddCommentForm = memo(
             [dispatch]
         );
 
-        const onSendHandler = useCallback(()=>{
-            onSendComment(text || '')
-            onCommentTextChange('')
-        },[onSendComment,onCommentTextChange,text])
-
+        const onSendHandler = useCallback(() => {
+            onSendComment(text || "");
+            onCommentTextChange("");
+        }, [onSendComment, onCommentTextChange, text]);
 
         return (
             <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-                <div
+                <HStack
+                    max
                     className={classNames(cls.AddCommentForm, {}, [className])}
                 >
                     <Input
@@ -62,7 +62,7 @@ const AddCommentForm = memo(
                     <Button theme={ThemeButton.OUTLINE} onClick={onSendHandler}>
                         Send
                     </Button>
-                </div>
+                </HStack>
             </DynamicModuleLoader>
         );
     }

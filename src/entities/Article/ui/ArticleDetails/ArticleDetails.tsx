@@ -27,6 +27,7 @@ import {
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
 import { ArticleCodeBlockComponent } from "../ArticleCodeBlockComponent/ArticleCodeBlockComponent";
 import { ArtilcleImageBlockComponent } from "../ArtilcleImageBlockComponent/ArtilcleImageBlockComponent";
+import { HStack, VStack } from "shared/ui/Stack";
 
 interface ArticleDetailsProps {
     className?: string;
@@ -113,35 +114,41 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
         );
     } else {
         content = (
-            <>
-                <div className={cls.avatarWrapper}>
+            <VStack max>
+                <HStack className={cls.avatarWrapper} max>
                     <Avatar size={200} src={data?.img} className={cls.avatar} />
-                </div>
-                <Text
-                    className={cls.title}
-                    title={data?.title}
-                    text={data?.subtitle}
-                    size={TextSize.L}
-                />
-                <div className={cls.articleInfo}>
-                    <Icon Svg={EyeIcon} className={cls.icon} />
-                    <Text text={String(data?.views)} />
-                </div>
-                <div className={cls.articleInfo}>
-                    <Icon Svg={CalendarIcon} className={cls.icon} />
+                </HStack>
+                <VStack gap="4" max>
+                    <Text
+                        className={cls.title}
+                        title={data?.title}
+                        text={data?.subtitle}
+                        size={TextSize.L}
+                    />
+                    <HStack gap="8" className={cls.articleInfo}>
+                        <Icon Svg={EyeIcon} className={cls.icon} />
+                        <Text text={String(data?.views)} />
+                    </HStack>
+                    <HStack gap="8" className={cls.articleInfo}>
+                        <Icon Svg={CalendarIcon} className={cls.icon} />
+                        <Text text={data?.createdAt} />
+                    </HStack>
+                </VStack>
 
-                    <Text text={data?.createdAt} />
-                </div>
                 {data?.blocks.map(renderBlock)}
-            </>
+            </VStack>
         );
     }
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount={true}>
-            <div className={classNames(cls.ArticleDetails, {}, [className])}>
+            <VStack
+                max
+                gap="16"
+                className={classNames(cls.ArticleDetails, {}, [className])}
+            >
                 {content}
-            </div>
+            </VStack>
         </DynamicModuleLoader>
     );
 });

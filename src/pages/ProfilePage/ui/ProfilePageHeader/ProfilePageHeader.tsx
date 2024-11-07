@@ -1,5 +1,4 @@
 import { classNames } from "shared/lib/classNames/className";
-import cls from "./ProfilePageHeader.module.scss";
 import { Button, ThemeButton } from "shared/ui/Button/Button";
 import { Text } from "shared/ui/Text/Text";
 import { useSelector } from "react-redux";
@@ -12,6 +11,7 @@ import {
 import { useAppDispatch } from "shared/lib/hooks/AppDispatch/AppDispatch";
 import { useCallback } from "react";
 import { getUserAuthData } from "entities/User";
+import { HStack } from "shared/ui/Stack/HStack/HStack";
 interface ProfilePageHeaderProps {
     className?: string;
 }
@@ -35,40 +35,37 @@ export const ProfilePageHeader = ({ className }: ProfilePageHeaderProps) => {
     }, [dispatch]);
 
     return (
-        <div className={classNames(cls.ProfilePageHeader, {}, [className])}>
-            <div className={cls.header}>
-                <Text title={"profile"} />
-                {canEdit && (
-                    <div className={cls.btnsWrapper}>
-                        {readonly ? (
+        <HStack
+            gap="8"
+            justify={"between"}
+            max
+            className={classNames("", {}, [className])}
+        >
+            <Text title={"profile"} />
+            {canEdit && (
+                <>
+                    {readonly ? (
+                        <Button theme={ThemeButton.OUTLINE} onClick={onEdit}>
+                            Редактировать
+                        </Button>
+                    ) : (
+                        <HStack gap="8">
                             <Button
-                                className={cls.editBtn}
-                                theme={ThemeButton.OUTLINE}
-                                onClick={onEdit}
+                                theme={ThemeButton.OUTLINE_RED}
+                                onClick={onCancelEdit}
                             >
-                                Редактировать
+                                отменить
                             </Button>
-                        ) : (
-                            <>
-                                <Button
-                                    className={cls.editBtn}
-                                    theme={ThemeButton.OUTLINE_RED}
-                                    onClick={onCancelEdit}
-                                >
-                                    отменить
-                                </Button>
-                                <Button
-                                    className={cls.saveBtn}
-                                    theme={ThemeButton.OUTLINE}
-                                    onClick={onSave}
-                                >
-                                    сохранить
-                                </Button>
-                            </>
-                        )}
-                    </div>
-                )}
-            </div>
-        </div>
+                            <Button
+                                theme={ThemeButton.OUTLINE}
+                                onClick={onSave}
+                            >
+                                сохранить
+                            </Button>
+                        </HStack>
+                    )}
+                </>
+            )}
+        </HStack>
     );
 };
