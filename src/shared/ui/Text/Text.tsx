@@ -4,7 +4,7 @@ import cls from "./Text.module.scss";
 export enum TextTheme {
     PRIMARY = "primary",
     ERROR = "error",
-    INVERTED = 'inverted'
+    INVERTED = "inverted",
 }
 
 export enum TextAlign {
@@ -14,6 +14,7 @@ export enum TextAlign {
 }
 
 export enum TextSize {
+    S = "size_s",
     M = "size_m",
     L = "size_l",
 }
@@ -27,6 +28,14 @@ interface TextProps {
     size?: TextSize;
 }
 
+export type HeaderTagType = "h1" | "h2" | "h3";
+
+const mapSizeToHeaderTag: Record<TextSize, HeaderTagType> = {
+    [TextSize.S]: "h3",
+    [TextSize.M]: "h2",
+    [TextSize.L]: "h1",
+};
+
 export const Text = ({
     className,
     title,
@@ -35,6 +44,8 @@ export const Text = ({
     theme = TextTheme.PRIMARY,
     aligin = TextAlign.LEFT,
 }: TextProps) => {
+    const HeaderTag = mapSizeToHeaderTag[size];
+
     const mods: Mods = {
         [cls[theme]]: true,
         [cls[aligin]]: true,
@@ -43,7 +54,7 @@ export const Text = ({
 
     return (
         <div className={classNames(cls.Text, mods, [className])}>
-            {title && <p className={cls.title}>{title}</p>}
+            {title && <HeaderTag className={cls.title}>{title}</HeaderTag>}
             {text && <p className={cls.text}>{text}</p>}
         </div>
     );
