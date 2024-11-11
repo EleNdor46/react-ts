@@ -26,6 +26,7 @@ import { Text, TextTheme } from "shared/ui/Text/Text";
 import { useParams } from "react-router-dom";
 import { Page } from "widgets/Page/Page";
 import { VStack } from "shared/ui/Stack/VStack/VStack";
+import { HStack } from "shared/ui/Stack";
 
 const reducers: ReducersList = {
     profile: profileReducer,
@@ -115,6 +116,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
                                 key={err}
                             />
                         ))}
+
                     <ProfileCard
                         onChangeAge={onChangeAge}
                         data={formData}

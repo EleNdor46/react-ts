@@ -29,45 +29,43 @@ const gapClasses: Record<FlexGap, string> = {
     "32": cls.gap32,
 };
 
-type divProps =DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
-
+type divProps = DetailedHTMLProps<
+    HTMLAttributes<HTMLDivElement>,
+    HTMLDivElement
+>;
 
 export interface FlexProps extends divProps {
     className?: string;
     children: ReactNode;
     justify?: FlexJustify;
     align?: FlexAlign;
-    direction?: FlexDirection;
+    direction: FlexDirection;
     gap?: FlexGap;
     max?: boolean;
 }
 
-
-
-export const Flex = memo(
-    ({
+export const Flex = ({
+    className,
+    children,
+    justify = "start",
+    align = "center",
+    direction = "row",
+    gap,
+    max,
+}: FlexProps) => {
+    const classes = [
         className,
-        children,
-        justify = "start",
-        align = "center",
-        direction = "row",
-        gap,
-        max,
-    }: FlexProps) => {
-        const classes = [
-            className,
-            justifyClasses[justify],
-            alignClasses[align],
-            directionClasses[direction],
-            gap && gapClasses[gap],
-        ];
+        justifyClasses[justify],
+        alignClasses[align],
+        directionClasses[direction],
+        gap && gapClasses[gap],
+    ];
 
-        const mods:Mods = {
-            [cls.max] : max
-        }
+    const mods: Mods = {
+        [cls.max]: max,
+    };
 
-        return (
-            <div className={classNames(cls.Flex, mods , classes)}>{children}</div>
-        );
-    }
-);
+    return (
+        <div className={classNames(cls.Flex, mods, classes)}>{children}</div>
+    );
+};

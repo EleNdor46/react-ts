@@ -1,6 +1,7 @@
 import { Country } from "entities/Country/model/types/country";
 import { memo, useCallback } from "react";
 import { classNames } from "shared/lib/classNames/className";
+import { ListBox } from "shared/ui/ListBox/ListBox";
 import { Select } from "shared/ui/Select/Select";
 interface CountrySelectProps {
     className?: string;
@@ -27,13 +28,14 @@ export const CountrySelect = memo(
         );
 
         return (
-            <Select
-                className={classNames("", {}, [className])}
-                label={"страна"}
-                options={options}
+            <ListBox
+                items={options}
                 value={value}
                 onChange={onChangeHandler}
+                defautlValue={"укажите Страну"}
                 readonly={readonly}
+                direction="top"
+                label={"укажите Страну"}
             />
         );
     }
