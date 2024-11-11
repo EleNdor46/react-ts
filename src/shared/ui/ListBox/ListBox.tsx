@@ -4,6 +4,7 @@ import { Fragment, memo, ReactNode, useState } from "react";
 import { Listbox as HListBox } from "@headlessui/react";
 import { Button, ThemeButton } from "../Button/Button";
 import { HStack } from "../Stack";
+import { DropDownDirection } from "shared/types/ui";
 
 export interface ListBoxItem {
     value: string;
@@ -11,11 +12,11 @@ export interface ListBoxItem {
     disabled?: boolean;
 }
 
-export type DropDownDirection = "top" | "bottom";
-
 const mapDirectionClass: Record<DropDownDirection, string> = {
-    bottom: cls.optionsBottom,
-    top: cls.optionsTop,
+    "bottom left": cls.optionsBottomLeft,
+    "bottom right": cls.optionsBottomRight,
+    "top left": cls.optionsBottomLeft,
+    "top right": cls.optionsBottomRight,
 };
 
 interface ListBoxProps {
@@ -37,7 +38,7 @@ export const ListBox = memo(
         onChange,
         defautlValue,
         readonly,
-        direction = "bottom",
+        direction = "bottom left",
         label,
     }: ListBoxProps) => {
         const optionsMods = [mapDirectionClass[direction]];
@@ -56,7 +57,7 @@ export const ListBox = memo(
                         className={cls.trigger}
                         disabled={readonly}
                     >
-                        <Button disabled={readonly} theme={ThemeButton.BACKGROUND_INVERTED}>
+                        <Button disabled={readonly}>
                             {value ?? defautlValue}
                         </Button>
                     </HListBox.Button>

@@ -9,6 +9,7 @@ import { Text, TextTheme } from "shared/ui/Text/Text";
 import { Avatar } from "shared/ui/Avatar/Avatar";
 import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
 import { RoutePath } from "shared/config/RouterConfig/routerConfig";
+import { Dropdown } from "shared/ui/Dropdown/Dropdown";
 interface NavBarProps {
     className?: string;
 }
@@ -32,7 +33,11 @@ export const NavBar = ({ className }: NavBarProps) => {
     if (authData) {
         return (
             <header className={classNames(cls.navbar, {}, [className])}>
-                <Text title={"¤EleNdor0_o"} theme={TextTheme.INVERTED} className={cls.appName}/>
+                <Text
+                    title={"¤EleNdor0_o"}
+                    theme={TextTheme.INVERTED}
+                    className={cls.appName}
+                />
                 <AppLink
                     to={RoutePath.article_create}
                     theme={AppLinkTheme.SECONDARY}
@@ -40,13 +45,22 @@ export const NavBar = ({ className }: NavBarProps) => {
                 >
                     Create Article
                 </AppLink>
-                <Button
-                    theme={ThemeButton.CLEAR_INVERTED}
-                    className={classNames(cls.links)}
-                    onClick={onLogOut}
-                >
-                    Log out
-                </Button>
+                <Dropdown
+                    direction="bottom left"
+                    className={cls.dropdown}
+                    items={[
+                        {
+                            content: "Выйти",
+                            onClick: onLogOut,
+                        },
+                        {
+                            content: "profile",
+                            href: RoutePath.profile + authData.id,
+                        },
+                    ]}
+                    trigger={<Avatar size={30} src={authData.avatar} />}
+                />
+
                 <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
             </header>
         );

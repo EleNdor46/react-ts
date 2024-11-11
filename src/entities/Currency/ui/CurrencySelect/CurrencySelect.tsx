@@ -32,7 +32,7 @@ export const CurrencySelect = memo(
                 onChange={onChangeHandler}
                 defautlValue={"укажите валюту"}
                 readonly={readonly}
-                label="укажите валюту"
+        label="укажите валюту"
             />
         );
     }
