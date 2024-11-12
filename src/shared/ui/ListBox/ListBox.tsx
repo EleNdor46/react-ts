@@ -23,7 +23,7 @@ interface ListBoxProps {
     className?: string;
     items?: ListBoxItem[];
     value?: string;
-    defautlValue?: string;
+    defaultValue?: string;
     onChange: (value: string) => void;
     readonly?: boolean;
     direction?: DropDownDirection;
@@ -36,7 +36,7 @@ export const ListBox = memo(
         items,
         value,
         onChange,
-        defautlValue,
+        defaultValue,
         readonly,
         direction = "bottom left",
         label,
@@ -45,20 +45,20 @@ export const ListBox = memo(
 
         return (
             <HStack gap="4">
-                {label && <span> {`${label}>`}</span>}
+                {label && <span>{`${label}>`}</span>}
                 <HListBox
                     disabled={readonly}
-                    as={"div"}
+                    as="div"
                     className={classNames(cls.ListBox, {}, [className])}
                     value={value}
                     onChange={onChange}
                 >
                     <HListBox.Button
-                        className={cls.trigger}
                         disabled={readonly}
+                        className={cls.trigger}
                     >
                         <Button disabled={readonly}>
-                            {value ?? defautlValue}
+                            {value ?? defaultValue}
                         </Button>
                     </HListBox.Button>
                     <HListBox.Options
@@ -66,10 +66,10 @@ export const ListBox = memo(
                     >
                         {items?.map((item) => (
                             <HListBox.Option
-                                as={Fragment}
                                 key={item.value}
                                 value={item.value}
                                 disabled={item.disabled}
+                                as={Fragment}
                             >
                                 {({ active, selected }) => (
                                     <li
@@ -78,7 +78,7 @@ export const ListBox = memo(
                                             [cls.disabled]: item.disabled,
                                         })}
                                     >
-                                        {selected && "_"}
+                                        {selected && "!!!"}
                                         {item.content}
                                     </li>
                                 )}

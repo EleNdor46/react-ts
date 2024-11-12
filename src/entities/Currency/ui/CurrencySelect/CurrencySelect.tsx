@@ -30,7 +30,7 @@ export const CurrencySelect = memo(
                 items={options}
                 value={value}
                 onChange={onChangeHandler}
-                defautlValue={"укажите валюту"}
+                defaultValue={"укажите валюту"}
                 readonly={readonly}
         label="укажите валюту"
             />

@@ -1,4 +1,4 @@
-import { ArticleDetailPageSchema } from './../../../../entities/Article/model/types/index';
+import { ArticleDetailPageSchema } from "./../../../../entities/Article/model/types/index";
 import { articleDetailPageRecomendationSchema } from "./../../../../pages/ArticlePage/model/type/articleDetailRecomendationSchema";
 import {
     AnyAction,
@@ -9,7 +9,6 @@ import {
 } from "@reduxjs/toolkit";
 import { AxiosInstance } from "axios";
 import { CounterSchema } from "entities/Counter";
-import { ProfileSchema } from "entities/Profile";
 import { UserSchema } from "entities/User";
 import { loginSchema } from "features/AuthByUsername";
 import { articleDetailsSchema } from "entities/Article";
@@ -17,16 +16,20 @@ import { ArticleDetailsCommentsSchema } from "pages/ArticleDetailsPage";
 import { addCommentFormSchema } from "features/addCommentForm";
 import { ArticlePageShema } from "pages/ArticlePage";
 import { UISchema } from "features/UI";
+import { rtkApi } from "shared/api/rtkApi";
+import { ProfileSchema } from "features/EditableProfileCard/undex";
 
 export interface StateSchema {
     counter: CounterSchema;
     user: UserSchema;
     ui: UISchema;
+    [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
+
     //async
     profile?: ProfileSchema;
     loginForm?: loginSchema;
     articleDetails?: articleDetailsSchema;
-    articleDetailPage?:ArticleDetailPageSchema
+    articleDetailPage?: ArticleDetailPageSchema;
     addCommentForm?: addCommentFormSchema;
     articlePage?: ArticlePageShema;
 }

@@ -32,6 +32,13 @@ export const Input = memo(
 
         const isCaretVisible = isFocused && !readonly;
 
+        useEffect(() => {
+            if (autoFocus) {
+                setIsFocused(true);
+                ref.current?.focus();
+            }
+        }, [autoFocus]);
+
         const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
             onChange?.(e.target.value);
             setCaretPosition(e.target.value.length);
@@ -48,13 +55,6 @@ export const Input = memo(
         const onSelect = (e: any) => {
             setCaretPosition(e?.target?.selectionStart || 0);
         };
-
-        useEffect(() => {
-            if (autoFocus) {
-                setIsFocused(true);
-                ref.current?.focus();
-            }
-        }, [autoFocus]);
 
         const mods: Mods = {
             [cls.readonly]: readonly,
@@ -76,14 +76,13 @@ export const Input = memo(
                         onFocus={onFocus}
                         onSelect={onSelect}
                         readOnly={readonly}
+                        {...props}
                     />
                     {isCaretVisible && (
                         <span
                             className={cls.caret}
                             style={{ left: `${caretPosition * 7.2}px` }}
-                        >
-                            {" "}
-                        </span>
+                        />
                     )}
                 </div>
             </div>

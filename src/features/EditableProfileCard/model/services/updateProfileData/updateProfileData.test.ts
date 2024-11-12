@@ -1,8 +1,8 @@
 import { Country } from "entities/Country";
 import { Currency } from "entities/Currency";
-import { validateProfileError } from "entities/Profile";
-import { updateProfileData } from "./updateProfileData";
 import { TestAsyncThunk } from "shared/lib/tests/TestAsynkThunk/TestAsynkThunk";
+import { updateProfileData } from "./updateProfileData";
+import { validateProfileError } from "../../types/Profile";
 
 const data = {
     username: "admin",

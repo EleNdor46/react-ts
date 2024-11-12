@@ -10,7 +10,7 @@ const MainPage = () => {
         <Page>
             <BugButton></BugButton>
             <ListBox
-                defautlValue="Choose..."
+                defaultValue="Choose..."
                 onChange={(value: string) => {}}
                 value={undefined}
                 items={[
