@@ -12,12 +12,11 @@ interface SideBarItemProps {
 }
 
 export const SideBarItem = memo(({ item, collapsed }: SideBarItemProps) => {
+    const isAuth = useSelector(getUserAuthData);
 
-  const isAuth =useSelector(getUserAuthData)
-
-  if(item.authOnly && !isAuth){
-    return null
-  }
+    if (item.authOnly && !isAuth) {
+        return null;
+    }
 
     return (
         <AppLink

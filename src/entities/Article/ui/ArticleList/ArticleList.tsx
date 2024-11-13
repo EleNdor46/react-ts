@@ -73,8 +73,9 @@ export const ArticleList = memo(
         if (!isLoading && !articles.length) {
             return <div>Статьи не найдены</div>;
         }
-
         return (
+            //@ts-ignore
+
             <WindowScroller
                 scrollElement={document.getElementById("PAGE_ID") as Element}
             >
@@ -87,6 +88,8 @@ export const ArticleList = memo(
                     onChildScroll,
                 }) => (
                     <div
+                        //@ts-ignore
+
                         ref={registerChild}
                         className={classNames(cls.ArticleList, {}, [
                             className,
@@ -94,6 +97,8 @@ export const ArticleList = memo(
                         ])}
                     >
                         {virtualization ? (
+                            //@ts-ignore
+
                             <List
                                 height={height ?? 700}
                                 rowCount={rowCount}

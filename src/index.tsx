@@ -7,15 +7,22 @@ import { ErrorBoundary } from "app/providers/ErrorBoundary";
 import "./app/style/index.scss";
 import { StoreProvider } from "app/providers/StoreProvider";
 
-render(
-  <BrowserRouter>
-    <StoreProvider>
-      <ErrorBoundary>
-        <ThemeProvider>
-          <App />
-        </ThemeProvider>
-      </ErrorBoundary>
-    </StoreProvider>
-  </BrowserRouter>,
-  document.getElementById("root")
+import { createRoot } from "react-dom/client";
+const container = document.getElementById("root");
+
+if (!container) {
+    throw Error("root undefined");
+}
+
+const root = createRoot(container); // createRoot(container!) if you use TypeScript
+root.render(
+    <BrowserRouter>
+        <StoreProvider>
+            <ErrorBoundary>
+                <ThemeProvider>
+                    <App />
+                </ThemeProvider>
+            </ErrorBoundary>
+        </StoreProvider>
+    </BrowserRouter>
 );
