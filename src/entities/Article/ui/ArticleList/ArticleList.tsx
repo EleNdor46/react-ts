@@ -11,6 +11,7 @@ interface ArticleListProps {
     isLoading?: boolean;
     view?: ArticleView;
     target?: HTMLAttributeAnchorTarget;
+    virtualization?: boolean;
 }
 
 const getSkeletons = (view: ArticleView) => {
@@ -32,6 +33,7 @@ export const ArticleList = memo(
         isLoading,
         view = ArticleView.SMALL,
         target,
+        virtualization = true,
     }: ArticleListProps) => {
         const isBig = view === ArticleView.BIG;
         const itemsPerRow = isBig ? 1 : 5;
@@ -57,14 +59,13 @@ export const ArticleList = memo(
                         className={cls.card}
                         target={target}
                         key={`str${i}`}
-                     
                     />
                 );
             }
 
             return (
                 <div key={key} style={style} className={cls.row}>
-                    { items }
+                    {items}
                 </div>
             );
         };
@@ -92,18 +93,29 @@ export const ArticleList = memo(
                             cls[view],
                         ])}
                     >
-                        <List
-                            ref="List"
-                            height={height ?? 700}
-                            rowCount={rowCount}
-                            rowHeight={isBig?700:330}
-                            rowRenderer={rowRenderer}
-                            width={width ? width - 80 : 700}
-                            autoHeight
-                            onScroll={onChildScroll}
-                            isScrolling={isScrolling}
-                            scrollTop={scrollTop}
-                        />
+                        {virtualization ? (
+                            <List
+                                height={height ?? 700}
+                                rowCount={rowCount}
+                                rowHeight={isBig ? 700 : 330}
+                                rowRenderer={rowRenderer}
+                                width={width ? width - 80 : 700}
+                                autoHeight
+                                onScroll={onChildScroll}
+                                isScrolling={isScrolling}
+                                scrollTop={scrollTop}
+                            />
+                        ) : (
+                            articles.map((item) => (
+                                <ArticleListItem
+                                    article={item}
+                                    view={view}
+                                    key={item.id}
+                                    className={cls.card}
+                                    target={target}
+                                />
+                            ))
+                        )}
 
                         {isLoading && getSkeletons(view)}
                     </div>

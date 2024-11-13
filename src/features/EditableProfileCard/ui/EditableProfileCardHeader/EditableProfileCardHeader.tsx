@@ -47,6 +47,9 @@ export const EditableProfileCardHeader = memo(
                             <Button
                                 theme={ThemeButton.OUTLINE}
                                 onClick={onEdit}
+                                data-testid={
+                                    "EditableProfileCardHeader.EditBtn"
+                                }
                             >
                                 Редактировать
                             </Button>
@@ -55,12 +58,18 @@ export const EditableProfileCardHeader = memo(
                                 <Button
                                     theme={ThemeButton.OUTLINE_RED}
                                     onClick={onCancelEdit}
+                                    data-testid={
+                                        "EditableProfileCardHeader.CancelBtn"
+                                    }
                                 >
                                     отменить
                                 </Button>
                                 <Button
                                     theme={ThemeButton.OUTLINE}
                                     onClick={onSave}
+                                    data-testid={
+                                        "EditableProfileCardHeader.SaveBtn"
+                                    }
                                 >
                                     сохранить
                                 </Button>

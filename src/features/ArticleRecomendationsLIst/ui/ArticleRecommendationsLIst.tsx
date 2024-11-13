@@ -13,18 +13,19 @@ export const ArticleRecommendationsLIst = memo(
     ({ className }: ArticleRecomendationsLIstProps) => {
         const { isLoading, data: articles } = useArticleRecommendationsList(4);
 
-        if (isLoading) {
+        if (isLoading || !articles) {
             return null;
         }
 
         return (
             <VStack gap="8">
-                <Text
-                    title={"Recomendation"}
-                    size={TextSize.M}
+                <Text title={"Recomendation"} size={TextSize.M} />
+                <ArticleList
+                    articles={articles}
+                    target="_blank"
+                    virtualization={false}
                 />
-                <ArticleList articles={articles} target="_blank" />
             </VStack>
         );
-    }
+    } 
 );
