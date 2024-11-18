@@ -4,6 +4,7 @@
     position: relative;
     box-shadow: 0 2px 10px 0 var(--skeleton-shadow);
     overflow: hidden;
+    z-index: 10000;
 
     &::before {
         content: "";

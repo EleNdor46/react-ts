@@ -1,8 +1,6 @@
 import { Country } from "entities/Country/model/types/country";
 import { memo, useCallback } from "react";
-import { classNames } from "shared/lib/classNames/className";
-import { ListBox } from "shared/ui/ListBox/ListBox";
-import { Select } from "shared/ui/Select/Select";
+import { ListBox } from "shared/ui/Popus";
 interface CountrySelectProps {
     className?: string;
     value?: Country;

@@ -1,7 +1,7 @@
 import { BugButton } from "app/providers/ErrorBoundary";
+import { NotificationList } from "entities/Notification";
 import { useTranslation } from "react-i18next";
-import { Dropdown } from "shared/ui/Dropdown/Dropdown";
-import { ListBox } from "shared/ui/ListBox/ListBox";
+import { ListBox } from "shared/ui/Popus";
 import { Page } from "widgets/Page/Page";
 const MainPage = () => {
     const { t } = useTranslation();

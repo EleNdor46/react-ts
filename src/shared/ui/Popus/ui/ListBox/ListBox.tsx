@@ -1,23 +1,18 @@
 import { classNames, Mods } from "shared/lib/classNames/className";
 import cls from "./ListBox.module.scss";
-import { Fragment, memo, ReactNode, useState } from "react";
+import { Fragment, memo, ReactNode } from "react";
 import { Listbox as HListBox } from "@headlessui/react";
-import { Button, ThemeButton } from "../Button/Button";
-import { HStack } from "../Stack";
 import { DropDownDirection } from "shared/types/ui";
+import { Button } from "shared/ui/Button/Button";
+import { HStack } from "shared/ui/Stack";
+import { mapDirectionClass } from "../styles/const";
+import popupCls from "../../ui/styles/popup.module.scss";
 
 export interface ListBoxItem {
     value: string;
     content: ReactNode;
     disabled?: boolean;
 }
-
-const mapDirectionClass: Record<DropDownDirection, string> = {
-    "bottom left": cls.optionsBottomLeft,
-    "bottom right": cls.optionsBottomRight,
-    "top left": cls.optionsBottomLeft,
-    "top right": cls.optionsBottomRight,
-};
 
 interface ListBoxProps {
     className?: string;
@@ -49,7 +44,10 @@ export const ListBox = memo(
                 <HListBox
                     disabled={readonly}
                     as="div"
-                    className={classNames(cls.ListBox, {}, [className])}
+                    className={classNames(cls.ListBox, {}, [
+                        className,
+                        popupCls.popus,
+                    ])}
                     value={value}
                     onChange={onChange}
                 >
@@ -74,8 +72,8 @@ export const ListBox = memo(
                                 {({ active, selected }) => (
                                     <li
                                         className={classNames(cls.item, {
-                                            [cls.active]: active,
-                                            [cls.disabled]: item.disabled,
+                                            [popupCls.active]: active,
+                                            [popupCls.disabled]: item.disabled,
                                         })}
                                     >
                                         {selected && "!!!"}
