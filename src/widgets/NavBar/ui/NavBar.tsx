@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import { useState } from "react";
 import { classNames } from "shared/lib/classNames/className";
 import cls from "./Navbar.module.scss";
 import { Button, ThemeButton } from "shared/ui/Button/Button";
@@ -6,21 +6,16 @@ import { LoginModal } from "features/AuthByUsername";
 import { useDispatch, useSelector } from "react-redux";
 import {
     getUserAuthData,
-    isUserAdmin,
-    isUserManager,
-    userActions,
 } from "entities/User";
 import { Text, TextTheme } from "shared/ui/Text/Text";
-import { Avatar } from "shared/ui/Avatar/Avatar";
 import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
 import { RoutePath } from "shared/config/RouterConfig/routerConfig";
 import { HStack } from "shared/ui/Stack";
-import BellIcon from "widgets/assets/icon/BellIcon.svg";
-import { Icon } from "shared/ui/Icon/Icon";
-import { Dropdown, Popover } from "shared/ui/Popus";
+
 import { NotificationList } from "entities/Notification";
 import { NotificationButton } from "features/notificationButton";
 import { AvatarDropdown } from "features/avatarDropdown";
+import { Drawer } from "shared/ui/Drawer/Drawer";
 interface NavBarProps {
     className?: string;
 }
@@ -38,6 +33,7 @@ export const NavBar = ({ className }: NavBarProps) => {
     };
 
    
+
 
     if (authData) {
         return (
