@@ -41,8 +41,8 @@ export const NotificationButton = memo(
                         <NotificationList className={cls.NotificationButton} />
                     </Popover>
                 </BrowserView>
-
-                <MobileView>
+ 
+            <MobileView>
                     <AnimationProvider>
                         <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
                             <NotificationList />
