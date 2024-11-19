@@ -1,12 +1,12 @@
-import {
-    ReactNode,
-} from "react";
+import { ReactNode } from "react";
 import { useTheme } from "app/providers/ThemeProvider";
 import cls from "./Modal.module.scss";
 import { Portal } from "shared/Portal/Portal";
 import { classNames, Mods } from "shared/lib/classNames/className";
 import { Overlay } from "../Overlay/Overlay";
 import { useModal } from "shared/lib/hooks/useModal/useModal";
+import { useDrag } from "@use-gesture/react";
+import { a, config, useSpring } from "@react-spring/web";
 
 interface ModalProps {
     className?: string;

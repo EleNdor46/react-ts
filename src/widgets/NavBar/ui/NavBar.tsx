@@ -12,10 +12,8 @@ import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
 import { RoutePath } from "shared/config/RouterConfig/routerConfig";
 import { HStack } from "shared/ui/Stack";
 
-import { NotificationList } from "entities/Notification";
 import { NotificationButton } from "features/notificationButton";
 import { AvatarDropdown } from "features/avatarDropdown";
-import { Drawer } from "shared/ui/Drawer/Drawer";
 interface NavBarProps {
     className?: string;
 }
