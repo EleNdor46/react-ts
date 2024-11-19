@@ -5,7 +5,10 @@ import { useTheme } from "app/providers/ThemeProvider";
 import { Portal } from "@headlessui/react";
 import { Overlay } from "../Overlay/Overlay";
 import { useModal } from "shared/lib/hooks/useModal/useModal";
-import { useAnimationLibs } from "shared/lib/components/AnimationProvider";
+import {
+    AnimationProvider,
+    useAnimationLibs,
+} from "shared/lib/components/AnimationProvider";
 interface DrawerProps {
     className?: string;
     children: ReactNode;
@@ -109,7 +112,7 @@ export const DrawerContent = memo(
     }
 );
 
-export const Drawer = memo((props: DrawerProps) => {
+const DrawerAsync = (props: DrawerProps) => {
     const { Gesture, Spring, isLoaded } = useAnimationLibs();
 
     if (!isLoaded) {
@@ -117,4 +120,12 @@ export const Drawer = memo((props: DrawerProps) => {
     }
 
     return <DrawerContent {...props} />;
-});
+};
+
+export const Drawer = (props: DrawerProps) => {
+    return (
+        <AnimationProvider>
+            <DrawerAsync {...props} />
+        </AnimationProvider>
+    );
+};
