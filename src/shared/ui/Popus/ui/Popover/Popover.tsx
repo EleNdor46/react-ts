@@ -25,7 +25,7 @@ export function Popover({
         <Hpopover
             className={classNames(cls.Popover, {}, [className, popupCls.popus])}
         >
-            <Hpopover.Button className={popupCls.trigger}>
+            <Hpopover.Button as="div" className={popupCls.trigger}>
                 {trigger}
             </Hpopover.Button>
             <Hpopover.Panel className={classNames(cls.panel, {}, menuClasses)}>
