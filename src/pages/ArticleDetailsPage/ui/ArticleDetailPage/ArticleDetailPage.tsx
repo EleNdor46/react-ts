@@ -14,6 +14,7 @@ import { ArticleDetailPageHeader } from "../ArticleDetailPageHeader/ArticleDetai
 import { VStack } from "shared/ui/Stack";
 import { ArticleRecommendationsLIst } from "features/ArticleRecomendationsLIst/ui/ArticleRecommendationsLIst";
 import { ArticleDetailsComments } from "../ArticleDetailsComments/ArticleDetailsComments";
+import { ArticleRaiting } from "features/articleRaiting";
 
 interface ArticleDetailPageProps {
     className?: string;
@@ -26,15 +27,16 @@ const reducers: ReducersList = {
 const ArticleDetailPage = ({ className }: ArticleDetailPageProps) => {
     const { id } = useParams<{ id: string }>();
 
-    const dispatch = useAppDispatch();
-    const navigate = useNavigate();
-
     if (!id) {
         return (
             <Page className={classNames("", {}, [className])}>
                 Dont fiend Article
             </Page>
         );
+    }
+
+    if (!id) {
+        return null;
     }
 
     return (
@@ -45,6 +47,7 @@ const ArticleDetailPage = ({ className }: ArticleDetailPageProps) => {
                 <VStack gap="16" max>
                     <ArticleDetailPageHeader />
                     <ArticleDetails id={id} />
+                    <ArticleRaiting articleId={id} />
                     <ArticleRecommendationsLIst />
                     <ArticleDetailsComments id={id} />
                 </VStack>

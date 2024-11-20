@@ -749,5 +749,391 @@
       "username": "ulbi tv",
       "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
     }
+  ],
+  "article-ratings": [
+    {
+      "id": "1",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "articleId": "1"
+    },
+    {
+      "id": "2",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "articleId": "2"
+    },
+    {
+      "userId": "1",
+      "articleId": "3",
+      "rate": 3,
+      "feedback": "",
+      "id": "I7ofk1u"
+    },
+    {
+      "userId": "1",
+      "articleId": "9",
+      "rate": 5,
+      "feedback": "asdasdasdasd",
+      "id": "Y7MhPzo"
+    },
+    {
+      "userId": "1",
+      "articleId": "10",
+      "rate": 1,
+      "feedback": "отстой",
+      "id": "II0a75O"
+    },
+    {
+      "userId": "1",
+      "articleId": "7",
+      "rate": 3,
+      "feedback": "",
+      "id": "bcPnbbZ"
+    },
+    {
+      "id": "NyatmGn"
+    },
+    {
+      "id": "clm4Xth"
+    },
+    {
+      "id": "58kSDV-"
+    },
+    {
+      "id": "kPobW1d"
+    },
+    {
+      "id": "Cq3cfDw"
+    },
+    {
+      "id": "S314UsA"
+    },
+    {
+      "id": "nQ-DfNL"
+    },
+    {
+      "id": "-YWGogF"
+    },
+    {
+      "id": "yV-ksIc"
+    },
+    {
+      "id": "CoZSSnJ"
+    },
+    {
+      "id": "3WWCpnI"
+    },
+    {
+      "id": "rXhhlpX"
+    },
+    {
+      "id": "Rio2Ndu"
+    },
+    {
+      "id": "-jxpNUf"
+    },
+    {
+      "id": "Zd35cCT"
+    },
+    {
+      "id": "ArAQBqo"
+    },
+    {
+      "id": "ElAMeWd"
+    },
+    {
+      "id": "_C8cDMp"
+    },
+    {
+      "id": "lA0TiZJ"
+    },
+    {
+      "id": "YStJAIJ"
+    },
+    {
+      "id": "e06plWb"
+    },
+    {
+      "id": "c0-LdIc"
+    },
+    {
+      "id": "EeHCTbd"
+    },
+    {
+      "id": "II0-jAb"
+    },
+    {
+      "id": "KHMglea"
+    },
+    {
+      "id": "Ys1aInh"
+    },
+    {
+      "id": "f9U3-DW"
+    },
+    {
+      "id": "EcSM64g"
+    },
+    {
+      "id": "JyXVM7R"
+    },
+    {
+      "id": "gDLHPW_"
+    },
+    {
+      "id": "fjHUWd1"
+    },
+    {
+      "id": "ywMDi1-"
+    },
+    {
+      "id": "iMN06lK"
+    },
+    {
+      "id": "TX7w637"
+    },
+    {
+      "id": "YfCaaBo"
+    },
+    {
+      "id": "qvT7TSC"
+    },
+    {
+      "id": "MmlSp43"
+    },
+    {
+      "id": "QzS_OeN"
+    },
+    {
+      "id": "egj4QRV"
+    },
+    {
+      "id": "vkLQHT9"
+    },
+    {
+      "id": "lTN0pN2"
+    },
+    {
+      "id": "jNPhhly"
+    },
+    {
+      "id": "BSMZcQ9"
+    },
+    {
+      "id": "u5x2A6l"
+    },
+    {
+      "id": "ePAbUzh"
+    },
+    {
+      "id": "OdQsRe7"
+    },
+    {
+      "id": "K9iIRV5"
+    },
+    {
+      "id": "EMBnHiB"
+    },
+    {
+      "id": "Gpn3K4l"
+    },
+    {
+      "id": "tG8RFpo"
+    },
+    {
+      "id": "Ft1xQeS"
+    },
+    {
+      "id": "vK9D1ca"
+    },
+    {
+      "id": "zFy5yt_"
+    },
+    {
+      "id": "W3QZLaI"
+    },
+    {
+      "id": "usz7gJz"
+    },
+    {
+      "id": "p1mgj5e"
+    },
+    {
+      "id": "XEMo1wm"
+    },
+    {
+      "id": "T7WIm0I"
+    },
+    {
+      "id": "rqdMnmL"
+    },
+    {
+      "id": "4ViNxIC"
+    },
+    {
+      "id": "z5Q9mME"
+    },
+    {
+      "id": "SLAtemw"
+    },
+    {
+      "id": "bOtnoJS"
+    },
+    {
+      "id": "brIDEnF"
+    },
+    {
+      "id": "WMyrTvz"
+    },
+    {
+      "id": "i7JaIHu"
+    },
+    {
+      "id": "iugXvEa"
+    },
+    {
+      "id": "m36UlMB"
+    },
+    {
+      "id": "Uqjjq2Z"
+    },
+    {
+      "id": "hswX_Ta"
+    },
+    {
+      "id": "LQ42RLS"
+    },
+    {
+      "id": "UmiFetf"
+    },
+    {
+      "id": "uIU1011"
+    },
+    {
+      "id": "dGq79Km"
+    },
+    {
+      "id": "7Wt96yH"
+    },
+    {
+      "id": "2Tc8PJh"
+    },
+    {
+      "id": "FMWeqgM"
+    },
+    {
+      "id": "gaPxV8T"
+    },
+    {
+      "id": "HFTLC0w"
+    },
+    {
+      "id": "LNNakdu"
+    },
+    {
+      "id": "jpCcaTc"
+    },
+    {
+      "id": "pvLeHPb"
+    },
+    {
+      "id": "hezRIbI"
+    },
+    {
+      "id": "T2WQGkn"
+    },
+    {
+      "id": "-qkDc3L"
+    },
+    {
+      "id": "MxoOCR0"
+    },
+    {
+      "id": "W-HJjOk"
+    },
+    {
+      "id": "mYZRhZL"
+    },
+    {
+      "id": "95T6ard"
+    },
+    {
+      "id": "P8pkRMU"
+    },
+    {
+      "id": "YHn-OaA"
+    },
+    {
+      "id": "JoiK3nn"
+    },
+    {
+      "id": "obm2nWL"
+    },
+    {
+      "id": "tUVBzxg"
+    },
+    {
+      "id": "MQpijaB"
+    },
+    {
+      "id": "uqBvGGV"
+    },
+    {
+      "id": "OfcToL5"
+    },
+    {
+      "id": "RVXvtQ1"
+    },
+    {
+      "id": "gmlmzaP"
+    },
+    {
+      "id": "IQ4gCqb"
+    },
+    {
+      "id": "SNtSOI1"
+    },
+    {
+      "id": "JgRMt4x"
+    },
+    {
+      "id": "vBoqFxj"
+    },
+    {
+      "id": "eaLffRr"
+    },
+    {
+      "userId": "1",
+      "articleId": "5",
+      "rate": 5,
+      "feedback": "",
+      "id": "qsVVwvr"
+    },
+    {
+      "userId": "1",
+      "articleId": "6",
+      "rate": 5,
+      "feedback": "хуйня",
+      "id": "fmWF5tV"
+    }
+  ],
+  "profile-ratings": [
+    {
+      "id": "1",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "profileId": "1"
+    },
+    {
+      "id": "2",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "profileId": "2"
+    }
   ]
 }

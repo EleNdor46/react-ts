@@ -10,7 +10,7 @@ const MainPage = () => {
 
     return (
         <Page>
-            <RaitingCard title="oceni" feedbackTitle={"you"} hasFeedback />
+            Main
         </Page>
     );
 };

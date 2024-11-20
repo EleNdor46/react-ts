@@ -15,6 +15,7 @@ interface RaitingCardProps {
     hasFeedback?: boolean;
     onCancel?: (starCount: number) => void;
     onAccept?: (starCount: number, feedback?: string) => void;
+    rate?: number;
 }
 
 export const RaitingCard = memo(
@@ -25,9 +26,10 @@ export const RaitingCard = memo(
         onAccept,
         onCancel,
         title,
+        rate = 0,
     }: RaitingCardProps) => {
         const [isModalOpen, setIsModalOpen] = useState(false);
-        const [starsCount, setStarsCount] = useState(0);
+        const [starsCount, setStarsCount] = useState(rate);
         const [feedback, setFeedback] = useState("");
 
         const onSelectStars = useCallback(
@@ -54,10 +56,18 @@ export const RaitingCard = memo(
         }, [starsCount, onCancel]);
 
         return (
-            <Card className={classNames(cls.RaitingCard, {}, [className])}>
+            <Card className={classNames(cls.RaitingCard, {}, [className])} max>
                 <VStack align="center" gap="8">
-                    <Text title={title} />
-                    <StarRating size={40} onSelect={onSelectStars} />
+                    <Text
+                        title={
+                            starsCount ? "idi naxuy" : "оцените статью милорд"
+                        }
+                    />
+                    <StarRating
+                        size={40}
+                        onSelect={onSelectStars}
+                        selectedStars={starsCount}
+                    />
                 </VStack>
                 <Modal isOpen={isModalOpen} lazy>
                     <VStack gap="32" max>
