@@ -9,9 +9,9 @@ import {
     userActions,
 } from "entities/User";
 import { useSelector } from "react-redux";
-import { RoutePath } from "shared/config/RouterConfig/routerConfig";
 import { Avatar } from "shared/ui/Avatar/Avatar";
 import { useAppDispatch } from "shared/lib/hooks/AppDispatch/AppDispatch";
+import { RoutePath } from "shared/const/router";
 interface AvatarDropdownProps {
     className?: string;
 }

@@ -2,12 +2,12 @@ import { classNames } from "shared/lib/classNames/className";
 import cls from "./ArticleDetailPageHeader.module.scss";
 import { memo, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import { RoutePath } from "shared/config/RouterConfig/routerConfig";
 import { Button, ThemeButton } from "shared/ui/Button/Button";
 import { useSelector } from "react-redux";
 import { getCanEditArticle } from "pages/ArticleDetailsPage/model/selector/article";
 import { getArticleDetailsData } from "entities/Article";
 import { HStack } from "shared/ui/Stack";
+import { RoutePath } from "shared/const/router";
 interface ArticleDetailPageHeaderProps {
     className?: string;
 }
@@ -27,7 +27,9 @@ export const ArticleDetailPageHeader = memo(
         }, [navigate, article?.id]);
 
         return (
-            <HStack max justify={"between"}
+            <HStack
+                max
+                justify={"between"}
                 className={classNames(cls.ArticleDetailPageHeader, {}, [
                     className,
                 ])}

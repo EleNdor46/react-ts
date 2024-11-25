@@ -14,18 +14,17 @@ import { Card } from "shared/ui/Card/Card";
 import { Avatar } from "shared/ui/Avatar/Avatar";
 import { Button, ThemeButton } from "shared/ui/Button/Button";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
-import { useNavigate } from "react-router-dom";
-import { RoutePath } from "shared/config/RouterConfig/routerConfig";
 import { AppLink } from "shared/ui/AppLink/AppLink";
+import { RoutePath } from "shared/const/router";
 interface ArticleListItemProps {
     className?: string;
     article: Article;
     view: ArticleView;
-    target?:HTMLAttributeAnchorTarget
+    target?: HTMLAttributeAnchorTarget;
 }
 
 export const ArticleListItem = memo(
-    ({ className, article, view,target }: ArticleListItemProps) => {
+    ({ className, article, view, target }: ArticleListItemProps) => {
         const types = (
             <Text text={article.type.join(", ")} className={cls.types} />
         );
