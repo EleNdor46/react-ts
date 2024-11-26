@@ -8,11 +8,7 @@ import { Page } from "widgets/Page/Page";
 const MainPage = () => {
     const { t } = useTranslation();
 
-    return (
-        <Page>
-            Main
-        </Page>
-    );
+    return <Page data-testid="MainPage">Main</Page>;
 };
 
 export default MainPage;

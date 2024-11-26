@@ -17,7 +17,7 @@ export function createReduxStore(
         ...asyncReducers,
         user: userReducer,
         ui: uiReducer,
-        [rtkApi.reducerPath]:rtkApi.reducer
+        [rtkApi.reducerPath]: rtkApi.reducer,
     };
 
     const reducerManager = createReducerManager(rootReducers);
@@ -28,14 +28,14 @@ export function createReduxStore(
 
     const store = configureStore({
         reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>>,
-        devTools: __IS_DEV__,
+        devTools: true,
         preloadedState: initialState,
         middleware: (getDefaultMiddleware) =>
             getDefaultMiddleware({
                 thunk: {
                     extraArgument: extraArg,
                 },
-            }).concat(rtkApi.middleware)
+            }).concat(rtkApi.middleware),
     });
 
     // @ts-ignore
