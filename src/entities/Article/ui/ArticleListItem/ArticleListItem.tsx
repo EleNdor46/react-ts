@@ -16,6 +16,8 @@ import { Button, ThemeButton } from "shared/ui/Button/Button";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
 import { AppLink } from "shared/ui/AppLink/AppLink";
 import { getRouteArticleDetail } from "shared/const/router";
+import { AppImage } from "shared/ui/AppImage/AppImage";
+import { Skeleton } from "shared/ui/Skeleton/Skeleton";
 interface ArticleListItemProps {
     className?: string;
     article: Article;
@@ -61,10 +63,14 @@ export const ArticleListItem = memo(
                         </div>
                         <Text title={article.title} className={cls.title} />
                         {types}
-                        <img
+                        <AppImage
                             src={article.img}
                             className={cls.img}
                             alt={article.title}
+                            fallback={<Skeleton width={"100%"} height={250} />}
+                            errorFalback={
+                                <Skeleton width={"100%"} height={250} />
+                            }
                         />
                         {textBlock && (
                             <ArticleTextBlockComponent
@@ -97,10 +103,16 @@ export const ArticleListItem = memo(
             >
                 <Card className={cls.card}>
                     <div className={cls.imageWrapper}>
-                        <img
+                        <AppImage
                             src={article.img}
                             className={cls.img}
                             alt={article.title}
+                            fallback={
+                                <Skeleton width={"100%"} height={"100%"} />
+                            }
+                            errorFalback={
+                                <Skeleton width={"100%"} height={"100%"} />
+                            }
                         />
                         <Text text={article.createdAt} className={cls.date} />
                     </div>
