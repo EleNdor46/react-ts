@@ -15,7 +15,7 @@ import { Avatar } from "shared/ui/Avatar/Avatar";
 import { Button, ThemeButton } from "shared/ui/Button/Button";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
 import { AppLink } from "shared/ui/AppLink/AppLink";
-import { RoutePath } from "shared/const/router";
+import { getRouteArticleDetail } from "shared/const/router";
 interface ArticleListItemProps {
     className?: string;
     article: Article;
@@ -73,7 +73,7 @@ export const ArticleListItem = memo(
                             />
                         )}
                         <div className={cls.footer}>
-                            <AppLink to={RoutePath.article_detail + article.id}>
+                            <AppLink to={getRouteArticleDetail(article.id)}>
                                 <Button theme={ThemeButton.OUTLINE}>
                                     read more...
                                 </Button>
@@ -92,7 +92,7 @@ export const ArticleListItem = memo(
                     className,
                     cls[view],
                 ])}
-                to={RoutePath.article_detail + article.id}
+                to={getRouteArticleDetail(article.id)}
                 target={target}
             >
                 <Card className={cls.card}>

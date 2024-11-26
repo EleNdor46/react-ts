@@ -11,7 +11,7 @@ import { HStack } from "shared/ui/Stack";
 
 import { NotificationButton } from "features/notificationButton";
 import { AvatarDropdown } from "features/avatarDropdown";
-import { RoutePath } from "shared/const/router";
+import { getRouteArticleCreate } from "shared/const/router";
 interface NavBarProps {
     className?: string;
 }
@@ -37,7 +37,7 @@ export const NavBar = ({ className }: NavBarProps) => {
                     className={cls.appName}
                 />
                 <AppLink
-                    to={RoutePath.article_create}
+                    to={getRouteArticleCreate()}
                     theme={AppLinkTheme.SECONDARY}
                     className={cls.createBtn}
                 >

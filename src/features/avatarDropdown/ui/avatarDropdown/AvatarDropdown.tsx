@@ -11,7 +11,7 @@ import {
 import { useSelector } from "react-redux";
 import { Avatar } from "shared/ui/Avatar/Avatar";
 import { useAppDispatch } from "shared/lib/hooks/AppDispatch/AppDispatch";
-import { RoutePath } from "shared/const/router";
+import { getRouteAdmin, getRouteProfile } from "shared/const/router";
 interface AvatarDropdownProps {
     className?: string;
 }
@@ -38,13 +38,13 @@ export const AvatarDropdown = memo(({ className }: AvatarDropdownProps) => {
                     ? [
                           {
                               content: "admin panel",
-                              href: RoutePath.admin,
+                              href: getRouteAdmin(),
                           },
                       ]
                     : []),
                 {
                     content: "profile",
-                    href: RoutePath.profile + authData.id,
+                    href: getRouteProfile(authData.id),
                 },
                 {
                     content: "Выйти",
