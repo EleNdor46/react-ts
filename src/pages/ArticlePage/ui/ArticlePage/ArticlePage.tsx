@@ -37,9 +37,10 @@ const ArticlePage = (props: ArticlePageProps) => {
             <Page
                 onScrollEnd={onLoadNextPart}
                 className={classNames(cls.ArticlesPage, {}, [className])}
+                data-testid="ArticlePage"
             >
                 <ArticlePageFilter />
-                <ArticleInfiniteList className={cls.list}/>
+                <ArticleInfiniteList className={cls.list} />
             </Page>
         </DynamicModuleLoader>
     );
